@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Outlook Simulation</title>
+    <link rel="stylesheet" href="mail.css"
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h3>Inbox</h3>
+            <p id="inbox-count">New Messages: 0</p>
+            <h4>Read</h4>
+        </div>
+        <div class="main">
+            <p id="message-count">Messages: 0</p>
+            <textarea id="message-content" readonly></textarea>
+            <div class="navigation">
+	        <button id="back-btn" disabled> << </button>
+                <button id="forward-btn" disabled> >> </button>
+            </div>
+        </div>
+    </div>
+    <script src="mail.js"></script>
+</body>
+</html>
+
