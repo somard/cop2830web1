@@ -4,7 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Outlook Simulation</title>
-    <link rel="stylesheet" href="mail.css"
+    <link rel="icon" type="image/x-icon" href="goofy.png">
+    <link rel="stylesheet" href="css/mail.css">
+    <style>
+        /* Additional styles for focus and hover */
+        #message-content:focus {
+            border-color: tomato;
+            outline: solid;
+            background-color: #007bff;
+        }
+        .hovered {
+            background-color: #007bff;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -17,12 +29,35 @@
             <p id="message-count">Messages: 0</p>
             <textarea id="message-content" readonly></textarea>
             <div class="navigation">
-	        <button id="back-btn" disabled> << </button>
+                <button id="back-btn" disabled> << </button>
                 <button id="forward-btn" disabled> >> </button>
             </div>
         </div>
     </div>
-    <script src="mail.js"></script>
+    <script>
+        const messageContent = document.getElementById('message-content');
+        const backBtn = document.getElementById('back-btn');
+        const forwardBtn = document.getElementById('forward-btn');
+
+        // Add focus and blur events for the textarea
+        messageContent.addEventListener('focus', () => {
+            console.log('Textarea is focused.');
+        });
+
+        messageContent.addEventListener('blur', () => {
+            console.log('Textarea lost focus.');
+        });
+
+        // Add mouseover events for the buttons
+        [backBtn, forwardBtn].forEach(button => {
+            button.addEventListener('mouseover', () => {
+                button.classList.add('hovered');
+            });
+
+            button.addEventListener('mouseout', () => {
+                button.classList.remove('hovered');
+            });
+        });
+    </script>
 </body>
 </html>
-
