@@ -29,34 +29,37 @@
             <p id="message-count">Messages: 0</p>
             <textarea id="message-content" readonly></textarea>
             <div class="navigation">
-                <button id="back-btn" disabled> << </button>
-                <button id="forward-btn" disabled> >> </button>
+                <button id="back-btn" disabled> prev </button>
+                <button id="forward-btn" disabled> next </button>
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        const messageContent = document.getElementById('message-content');
-        const backBtn = document.getElementById('back-btn');
-        const forwardBtn = document.getElementById('forward-btn');
+        const messageContent = $('#message-content');
+        const backBtn = $('#back-btn');
+        const forwardBtn = $('#forward-btn');
 
         // Add focus and blur events for the textarea
-        messageContent.addEventListener('focus', () => {
+        messageContent.focus(function() {
             console.log('Textarea is focused.');
         });
 
-        messageContent.addEventListener('blur', () => {
+        messageContent.blur(function() {
             console.log('Textarea lost focus.');
         });
 
         // Add mouseover events for the buttons
-        [backBtn, forwardBtn].forEach(button => {
-            button.addEventListener('mouseover', () => {
-                button.classList.add('hovered');
-            });
+        backBtn.mouseover(function() {
+            $(this).addClass('hovered');
+        }).mouseout(function() {
+            $(this).removeClass('hovered');
+        });
 
-            button.addEventListener('mouseout', () => {
-                button.classList.remove('hovered');
-            });
+        forwardBtn.mouseover(function() {
+            $(this).addClass('hovered');
+        }).mouseout(function() {
+            $(this).removeClass('hovered');
         });
     </script>
 </body>
